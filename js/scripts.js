@@ -9,6 +9,7 @@ $(document).ready(function(){
     //the Dice needs to roll and user either keep rolling or loosing all points
   rollDice();
   turnScore();
+  $("#rollStatus").text(result);
   });
 
   $("#holdButton").click(function(){
@@ -22,6 +23,8 @@ $(document).ready(function(){
     //the Dice needs to roll and user either keep rolling or loosing all points
   rollDice();
   turnScore2();
+  $("#rollStatus").text(result);
+
   });
 
   $("#holdButton2").click(function(){
@@ -44,7 +47,9 @@ var instance1Player = new Player(1);
 
 var rollDice = function (){
   result = (Math.floor(Math.random()*6)+1);
-  return result;
+  // $("#yourDice1").text(result);
+
+  // return result;
 }
 
 // var hold = function (){
