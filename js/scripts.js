@@ -14,8 +14,21 @@ $(document).ready(function(){
   $("#holdButton").click(function(){
     //all accumulated ponts are stored and turn goes to another player
   instancePlayer.hold();
-  $("#userStatus").text(0);
+  $("#user1Status").text(0);
   $("#userTotal").text(instancePlayer.total);
+  });
+
+  $("#rollButton2").click(function(){
+    //the Dice needs to roll and user either keep rolling or loosing all points
+  rollDice();
+  turnScore2();
+  });
+
+  $("#holdButton2").click(function(){
+    //all accumulated ponts are stored and turn goes to another player
+  instance1Player.hold();
+  $("#user2Status").text(0);
+  $("#user2Total").text(instance1Player.total);
   });
 });
 
@@ -49,13 +62,30 @@ Player.prototype.hold = function(){
 var turnScore = function() {
   if (result === 1) {
     turnscore = 0;
-    $("#userStatus").text(0);
-    console.log(result)
-  if(result >= 100)
+    $("#user1Status").text(0);
+    alert("Pass the mouse to the other player, your turn has ended")
+  }
+  else if(instancePlayer.total >= 100) {
   alert("You are rock!")
-  console.log(result)
   } else {
     turnscore += result
-    $("#userStatus").text(turnscore);
+    $("#user1Status").text(turnscore);
+}
+};
+
+var turnScore2 = function() {
+  if (result === 1) {
+    turnscore = 0;
+    $("#user2Status").text(0);
+    alert("Pass the mouse to the other player, your turn has ended")
+
+    // console.log(result)
+  }
+  else if(instance1Player.total >= 100){
+  alert("You are rock!")
+  // console.log(result)
+  } else {
+    turnscore += result
+    $("#user2Status").text(turnscore);
 }
 };
