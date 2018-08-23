@@ -9,31 +9,30 @@
   </head>
   <body>
     <div class="container">
+        <!-- <div class = row> -->
       <div class="jumbotron">
         <h1>How greedy are you? Let's play!</h1>
+        <h2> "Pig Dice"</h1>
       </div>
-      <h1>Pig Dice</h1>
-      <h2>User Total</h2>
+      <div class = row>
+      <h2 class="col-md-4">User 1 Total</h2>
+      <h2 class="col-md-4">User 2 Total</h2>
+
       <br>
         <div id = "userTotal"></div>
-        <div class = row>
-          <div class = "col-lg-6">
-            <button type="click" class="btn btn-success" id="rollButton">Roll</button>
-          </div>
-      <br>
-          <div class= "col-lg-6">
-            <button type="click" class="btn btn-warning" id="holdButton">Hold</button>
-          </div>
         </div>
+          <!-- <div class = "col-md-6"> -->
+            <button type="click" class="btn btn-success" id="rollButton">Roll</button>
+
+          <!-- <div class= "col-md-6"> -->
+            <button type="click" class="btn btn-warning" id="holdButton">Hold</button>
+            <!-- </div> -->
+            <h3>User Status</h2>
+            <div id = "userStatus"></div>
+            <h3>User 2 Status</h2>
+            <div id = "user2Status"></div>
+            <!-- </div> -->
+          </div>
       <br>
-        <h2>User Status</h2>
-        <div id = "userStatus"></div>
-</body>
-      </div>
-      <!-- <div class="result">
-        <h3>Here's what you've got:</h3>
-        <ul><span class="output"></span></ul>
-      </div> -->
-    </div>
   </body>
 </html>

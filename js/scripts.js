@@ -1,37 +1,45 @@
-var rollDice=0;
-var turnscore=0;
-var total=0;
+//FRONTEND
+
+var diceNumber=0;// set the showing Dice total
+var turnscore=0; //running total of the current player
+//var total=0;
 $(document).ready(function(){
 
   $("#rollButton").click(function(){
+    //the Dice needs to roll and user either keep rolling or loosing all points
   rollDice();
   turnScore();
   });
 
   $("#holdButton").click(function(){
-  hold();
+    //all accumulated ponts are stored and turn goes to another player
+  instancePlayer.hold();
+  $("#userStatus").text(0);
+  $("#userTotal").text(instancePlayer.total);
   });
 });
+
+//BACKEND
+
 function Player(id){
   this.id=id;
   this.total=0;
-  // this.turnScore=0;
 }
 
 var instancePlayer = new Player(0);
-var instancePlayer = new Player(1);
-
-console.log(instancePlayer);
+var instance1Player = new Player(1);
 
 var rollDice = function (){
   result = (Math.floor(Math.random()*6)+1);
   return result;
 }
 
-var hold = function (){
-  total += turnscore;
-  $("#userTotal").text(total);
-}
+// var hold = function (){
+//   total += turnscore;
+//   $("#userTotal").text(total);
+//   console.log(total);
+//   $("#userStatus").text(0);
+// }
 
 Player.prototype.hold = function(){
   this.total += turnscore
@@ -39,10 +47,13 @@ Player.prototype.hold = function(){
 }
 
 var turnScore = function() {
-  // console.log(result);
   if (result === 1) {
     turnscore = 0;
-    $("#userStatus").text("");
+    $("#userStatus").text(0);
+    console.log(result)
+  if(result >= 100)
+  alert("You are rock!")
+  console.log(result)
   } else {
     turnscore += result
     $("#userStatus").text(turnscore);
