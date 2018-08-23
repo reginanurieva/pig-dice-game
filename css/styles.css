@@ -4,9 +4,13 @@
  .btn2 {
    vertical-align: middle;
  } */
+
 /* #rollButton2 {
   margin-right;
 }
 #holdButton2 {
   margin-right;
-} */
+}  */
+#rollButton2, #holdButton2{
+  display: none;
+}

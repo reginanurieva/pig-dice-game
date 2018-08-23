@@ -1,3 +1,4 @@
+
 //FRONTEND
 
 var diceNumber=0;// set the showing Dice total
@@ -13,11 +14,17 @@ $(document).ready(function(){
   });
 
   $("#holdButton").click(function(){
+  alert("Switch to player 2");
     //all accumulated ponts are stored and turn goes to another player
   instancePlayer.hold();
   $("#user1Status").text(0);
   $("#userTotal").text(instancePlayer.total);
+  $("#holdButton").toggle();
+  $("#rollButton").toggle();
+  $("#holdButton2").toggle();
+  $("#rollButton2").toggle();
   });
+
 
   $("#rollButton2").click(function(){
     //the Dice needs to roll and user either keep rolling or loosing all points
@@ -29,9 +36,14 @@ $(document).ready(function(){
 
   $("#holdButton2").click(function(){
     //all accumulated ponts are stored and turn goes to another player
+  alert("Switch to player 1");
   instance1Player.hold();
   $("#user2Status").text(0);
   $("#user2Total").text(instance1Player.total);
+  $("#holdButton2").toggle();
+  $("#rollButton2").toggle();
+  $("#holdButton").toggle();
+  $("#rollButton").toggle();
   });
 });
 
@@ -68,7 +80,11 @@ var turnScore = function() {
   if (result === 1) {
     turnscore = 0;
     $("#user1Status").text(0);
-    alert("Pass the mouse to the other player, your turn has ended")
+    alert("Your dice is 1!Pass the mouse to the other player, your turn has ended");
+    $("#holdButton").toggle();
+    $("#rollButton").toggle();
+    $("#holdButton2").toggle();
+    $("#rollButton2").toggle();
   }
   else if(instancePlayer.total >= 100) {
   alert("You are rock!")
@@ -82,8 +98,11 @@ var turnScore2 = function() {
   if (result === 1) {
     turnscore = 0;
     $("#user2Status").text(0);
-    alert("Pass the mouse to the other player, your turn has ended")
-
+    alert("Pass the mouse to the other player, your turn has ended");
+    $("#holdButton2").toggle();
+    $("#rollButton2").toggle();
+    $("#holdButton").toggle();
+    $("#rollButton").toggle();
     // console.log(result)
   }
   else if(instance1Player.total >= 100){
